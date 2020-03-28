@@ -1,4 +1,4 @@
-FROM tiredofit/nodejs:8-latest
+FROM node:12.16.1-alpine3.11
 LABEL maintainer="Dave Conroy <dave at tiredofit dot ca>"
 
 ARG JITSIMEET_VERSION
@@ -19,8 +19,8 @@ ENV JITSIMEET_VERSION=${JITSIMEET_VERSION:-2957}
           make \
           ; \
 
-### Fetch Jitsi Meet
-    curl -sSL https://codeload.github.com/jitsi/jitsi-meet/tar.gz/jitsi-meet_$JITSIMEET_VERSION | tar xvfz - --strip 1 -C /app/ ; \
+### Fetch Jitsi Meet https://github.com/jitsi/jitsi-meet/archive/3931.zip
+    curl -sSL https://github.com/jitsi/jitsi-meet/archive/3931.zip | tar xvfz - --strip 1 -C /app/ ; \
     cd /app ; \
 ### Install
     npm install node-sass@latest ; \
